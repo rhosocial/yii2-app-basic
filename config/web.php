@@ -15,7 +15,8 @@ $config = [
             'class' => 'yii\caching\FileCache',
         ],
         'user' => [
-            'identityClass' => 'app\models\User',
+            'class' => 'rhosocial\base\models\web\User',
+            'identityClass' => 'rhosocial\user\User',
             'enableAutoLogin' => true,
         ],
         'errorHandler' => [
@@ -36,6 +37,9 @@ $config = [
                     'levels' => ['error', 'warning'],
                 ],
             ],
+        ],
+        'authManager' => [
+            'class' => 'rhosocial\user\rbac\DbManager',
         ],
         'db' => require(__DIR__ . '/db.php'),
         /*

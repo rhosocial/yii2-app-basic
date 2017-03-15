@@ -20,6 +20,9 @@ $config = [
                 ],
             ],
         ],
+        'authManager' => [
+            'class' => 'rhosocial\user\rbac\DbManager',
+        ],
         'db' => $db,
     ],
     'params' => $params,
