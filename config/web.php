@@ -15,8 +15,8 @@ $config = [
             'class' => 'yii\caching\FileCache',
         ],
         'user' => [
-            'class' => 'rhosocial\base\models\web\User',
-            'identityClass' => 'rhosocial\user\User',
+            'class' => 'app\components\web\User',
+            'identityClass' => 'app\models\User',
             'enableAutoLogin' => true,
         ],
         'errorHandler' => [
