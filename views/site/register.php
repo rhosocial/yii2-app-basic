@@ -12,9 +12,9 @@
 
 /* @var $this yii\web\View */
 /* @var $form yii\bootstrap\ActiveForm */
-/* @var $model rhosocial\user\forms\LoginForm */
+/* @var $model rhosocial\user\forms\RegisterForm */
 
-$this->title = 'Login';
+$this->title = 'Register';
 $this->params['breadcrumbs'][] = $this->title;
 ?>
-<?= $result = \rhosocial\user\widgets\LoginFormWidget::widget(['model' => $model]); ?>
+<?= $result = \rhosocial\user\widgets\RegisterFormWidget::widget(['model' => $model]); ?>

@@ -10,11 +10,13 @@
  * @license https://vistart.me/license/
  */
 
-/* @var $this yii\web\View */
-/* @var $form yii\bootstrap\ActiveForm */
-/* @var $model rhosocial\user\forms\LoginForm */
+namespace app\models;
 
-$this->title = 'Login';
-$this->params['breadcrumbs'][] = $this->title;
-?>
-<?= $result = \rhosocial\user\widgets\LoginFormWidget::widget(['model' => $model]); ?>
+/**
+ * @version 1.0
+ * @author vistart <i@vistart.me>
+ */
+class Profile extends \rhosocial\user\Profile
+{
+    public $hostClass = User::class;
+}

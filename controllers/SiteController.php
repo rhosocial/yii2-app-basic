@@ -2,15 +2,20 @@
 
 namespace app\controllers;
 
+use app\models\ContactForm;
+use rhosocial\user\forms\LoginForm;
+use rhosocial\user\forms\RegisterForm;
 use Yii;
 use yii\filters\AccessControl;
-use yii\web\Controller;
 use yii\filters\VerbFilter;
-use app\models\LoginForm;
-use app\models\ContactForm;
+use yii\helpers\Url;
+use yii\web\Controller;
 
 class SiteController extends Controller
 {
+    const SESSION_KEY_REGISTER_USER_ID = 'session_key_register_user_id';
+    const SESSION_KEY_REGISTER_FAILED_MESSAGE = 'session_key_register_failed_message';
+    
     /**
      * @inheritdoc
      */
@@ -18,7 +23,7 @@ class SiteController extends Controller
     {
         return [
             'access' => [
-                'class' => AccessControl::className(),
+                'class' => AccessControl::class,
                 'only' => ['logout'],
                 'rules' => [
                     [
@@ -29,7 +34,7 @@ class SiteController extends Controller
                 ],
             ],
             'verbs' => [
-                'class' => VerbFilter::className(),
+                'class' => VerbFilter::class,
                 'actions' => [
                     'logout' => ['post'],
                 ],
@@ -121,5 +126,46 @@ class SiteController extends Controller
     public function actionAbout()
     {
         return $this->render('about');
+    }
+    
+    public function actionRegister()
+    {
+        if (!Yii::$app->user->isGuest) {
+            return $this->goHome();
+        }
+        
+        $model = new RegisterForm();
+        if ($model->load(Yii::$app->request->post())) {
+            try {
+                if ($model->register()) {
+                    Yii::$app->session->setFlash(self::SESSION_KEY_REGISTER_USER_ID, $model->model->getID());
+                    return $this->redirect(Url::to(['site/register-success']));
+                }
+            } catch (\Exception $ex) {
+                Yii::error($ex->getMessage(), __METHOD__);
+                Yii::$app->session->setFlash(self::SESSION_KEY_REGISTER_FAILED_MESSAGE, $ex->getMessage());
+            }
+            return $this->redirect(Url::to(['site/register-failed']));
+        }
+        return $this->render('register', [
+            'model' => $model,
+        ]);
+    }
+    
+    public function actionRegisterSuccess()
+    {
+        if (!Yii::$app->user->isGuest) {
+            return $this->goHome();
+        }
+        $id = Yii::$app->session->getFlash(self::SESSION_KEY_REGISTER_USER_ID);
+        if ($id === null) {
+            return $this->redirect(['site/register']);
+        }
+        return $this->render('register-success', ['id' => $id]);
+    }
+    
+    public function actionRegisterFailed()
+    {
+        return $this->render('register-failed', ['message' => Yii::$app->session->getFlash(self::SESSION_KEY_REGISTER_FAILED_MESSAGE)]);
     }
 }

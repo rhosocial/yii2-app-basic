@@ -10,11 +10,9 @@
  * @license https://vistart.me/license/
  */
 
-/* @var $this yii\web\View */
-/* @var $form yii\bootstrap\ActiveForm */
-/* @var $model rhosocial\user\forms\LoginForm */
+/* @var $message string */
 
-$this->title = 'Login';
+$this->title = 'Register Failed';
 $this->params['breadcrumbs'][] = $this->title;
-?>
-<?= $result = \rhosocial\user\widgets\LoginFormWidget::widget(['model' => $model]); ?>
+
+echo $message;
