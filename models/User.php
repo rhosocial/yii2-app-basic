@@ -19,4 +19,5 @@ namespace app\models;
 class User extends \rhosocial\user\User
 {
     public $profileClass = Profile::class;
+    public $passwordHistoryClass = \rhosocial\user\security\PasswordHistory::class;
 }
