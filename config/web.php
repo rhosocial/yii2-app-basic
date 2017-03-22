@@ -18,6 +18,7 @@ $config = [
             'class' => 'app\components\web\User',
             'identityClass' => 'app\models\User',
             'enableAutoLogin' => true,
+            'loginUrl' => ['user/auth/login'],
         ],
         'errorHandler' => [
             'errorAction' => 'site/error',
@@ -50,6 +51,11 @@ $config = [
             ],
         ],
         */
+    ],
+    'modules' => [
+        'user' => [
+            'class' => 'rhosocial\user\web\user\Module',
+        ],
     ],
     'params' => $params,
 ];
