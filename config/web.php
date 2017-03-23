@@ -53,6 +53,9 @@ $config = [
         */
     ],
     'modules' => [
+        'admin' =>[
+            'class' => 'rhosocial\user\web\admin\Module',
+        ],
         'user' => [
             'class' => 'rhosocial\user\web\user\Module',
         ],

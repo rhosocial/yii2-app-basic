@@ -3,12 +3,7 @@
 namespace app\controllers;
 
 use app\models\ContactForm;
-use rhosocial\user\forms\LoginForm;
-use rhosocial\user\forms\RegisterForm;
 use Yii;
-use yii\filters\AccessControl;
-use yii\filters\VerbFilter;
-use yii\helpers\Url;
 use yii\web\Controller;
 
 class SiteController extends Controller
