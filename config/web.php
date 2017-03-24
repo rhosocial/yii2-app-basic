@@ -7,6 +7,18 @@ $config = [
     'basePath' => dirname(__DIR__),
     'bootstrap' => ['log'],
     'components' => [
+        'i18n' => [
+            'translations' => [
+                'user*' => [
+                    'class' => 'yii\i18n\PhpMessageSource',
+                    'basePath' => '@rhosocial/user/messages',
+                    'sourceLanguage' => 'en-US',
+                    'fileMap' => [
+                        'user' => 'user.php',
+                    ],
+                ],
+            ],
+        ],
         'request' => [
             // !!! insert a secret key in the following (if it is empty) - this is required by cookie validation
             'cookieValidationKey' => '',
