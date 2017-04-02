@@ -26,6 +26,7 @@ class User extends \rhosocial\user\User
     {
         $this->memberClass = organization\Member::class;
         $this->organizationClass = organization\Organization::class;
+        $this->initOrganizationEvents();
         parent::init();
     }
 }
