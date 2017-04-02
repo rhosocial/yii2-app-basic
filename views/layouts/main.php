@@ -40,18 +40,21 @@ AppAsset::register($this);
             ['label' => 'Home', 'url' => ['/site/index']],
             ['label' => 'About', 'url' => ['/site/about']],
             ['label' => 'Contact', 'url' => ['/site/contact']],
+            (!Yii::$app->user->isGuest && Yii::$app->user->isAdmin) ? [
+                'label' => Yii::t('user', 'Admin'), 'url' => ['/admin/user/index'],
+            ] : (''),
             Yii::$app->user->isGuest ? (
-                ['label' => 'Login', 'url' => ['/user/auth/login']]
+                ['label' => Yii::t('user', 'Login'), 'url' => ['/user/auth/login']]
             ) : (
                 '<li>'
                 . Html::beginForm(['/user/auth/logout'], 'post')
                 . Html::submitButton(
-                    'Logout (' . Yii::$app->user->identity->getID() . ')',
+                    Yii::t('user', 'Logout') .' (' . Yii::$app->user->identity->getID() . ')',
                     ['class' => 'btn btn-link logout']
                 )
                 . Html::endForm()
                 . '</li>'
-            )
+            ),
         ],
     ]);
     NavBar::end();

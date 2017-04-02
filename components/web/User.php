@@ -13,9 +13,14 @@
 namespace app\components\web;
 
 use rhosocial\user\models\log\Login;
+use rhosocial\user\rbac\roles\Admin;
 use Yii;
 
 /**
+ * User component.
+ *
+ * @property-read boolean $isAdmin
+ *
  * @version 1.0
  * @author vistart <i@vistart.me>
  */
@@ -41,5 +46,17 @@ class User extends \rhosocial\base\models\web\User
         } catch (\Exception $ex) {
             Yii::error($ex->getMessage());
         }
+    }
+
+    /**
+     * Check whether current identity is administrator or not.
+     * @return boolean
+     */
+    public function getIsAdmin()
+    {
+        if ($this->getIsGuest()) {
+            return false;
+        }
+        return $this->can((new Admin)->name, $this->identity);
     }
 }
