@@ -41,7 +41,7 @@ AppAsset::register($this);
             ['label' => 'About', 'url' => ['/site/about']],
             ['label' => 'Contact', 'url' => ['/site/contact']],
             (!Yii::$app->user->isGuest && Yii::$app->user->isAdmin) ? [
-                'label' => Yii::t('user', 'Admin'), 'url' => ['/admin/user/index'],
+                'label' => Yii::t('user', 'Admin'), 'url' => ['/admin'],
             ] : (''),
             Yii::$app->user->isGuest ? (
                 ['label' => Yii::t('user', 'Login'), 'url' => ['/user/auth/login']]
