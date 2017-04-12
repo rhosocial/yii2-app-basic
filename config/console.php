@@ -36,12 +36,12 @@ $config = [
         'user' => [
             'class' => 'rhosocial\user\console\controllers\UserController',
             'userClass' => 'app\models\User',
-        ],
+        ],/*
         'organization' => [
             'class' => 'rhosocial\organization\console\controllers\OrganizationController',
             'userClass' => 'app\models\User',
             'organizationClass' => 'app\models\organization\Organization',
-        ],
+        ],*/
     ],
     
 ];

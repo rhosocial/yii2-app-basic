@@ -12,16 +12,15 @@
 
 namespace app\models\organization;
 
+use app\models\OrganizationLimit;
+
 /**
- * Class Organization
+ * Class SubordinateLimit
  * @package app\models\organization
  * @version 1.0
  * @author vistart <i@vistart.me>
  */
-class Organization extends \rhosocial\organization\Organization
+class SubordinateLimit extends \rhosocial\organization\SubordinateLimit
 {
-    public $memberClass = Member::class;
-    public $profileClass = Profile::class;
-    public $memberLimitClass = MemberLimit::class;
-    public $subordinateLimitClass = SubordinateLimit::class;
+    public $hostClass = Organization::class;
 }

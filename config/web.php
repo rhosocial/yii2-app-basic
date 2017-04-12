@@ -17,6 +17,14 @@ $config = [
                         'user' => 'user.php',
                     ],
                 ],
+                'organization*' => [
+                    'class' => 'yii\i18n\PhpMessageSource',
+                    'basePath' => '@rhosocial/organization/messages',
+                    'sourceLanguage' => 'en-US',
+                    'fileMap' => [
+                        'organization' => 'organization.php',
+                    ],
+                ],
             ],
         ],
         'request' => [
@@ -70,6 +78,14 @@ $config = [
         ],
         'user' => [
             'class' => 'rhosocial\user\web\user\Module',
+            'controllerMap' => [
+                'my' => [
+                    'class' => 'app\controllers\MyController',
+                ],
+            ],
+        ],
+        'organization' => [
+            'class' => 'rhosocial\organization\web\organization\Module',
         ],
     ],
     'params' => $params,

@@ -10,18 +10,15 @@
  * @license https://vistart.me/license/
  */
 
-namespace app\models\organization;
+namespace app\models;
 
 /**
- * Class Organization
+ * Class OrganizationLimit
  * @package app\models\organization
  * @version 1.0
  * @author vistart <i@vistart.me>
  */
-class Organization extends \rhosocial\organization\Organization
+class OrganizationLimit extends \rhosocial\organization\OrganizationLimit
 {
-    public $memberClass = Member::class;
-    public $profileClass = Profile::class;
-    public $memberLimitClass = MemberLimit::class;
-    public $subordinateLimitClass = SubordinateLimit::class;
+    public $hostClass = User::class;
 }

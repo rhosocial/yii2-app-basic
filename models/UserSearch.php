@@ -10,18 +10,15 @@
  * @license https://vistart.me/license/
  */
 
-namespace app\models\organization;
+namespace app\models;
 
 /**
- * Class Organization
- * @package app\models\organization
+ * Class UserSearch
+ * @package app\models
  * @version 1.0
  * @author vistart <i@vistart.me>
  */
-class Organization extends \rhosocial\organization\Organization
+class UserSearch extends \rhosocial\user\UserSearch
 {
-    public $memberClass = Member::class;
-    public $profileClass = Profile::class;
-    public $memberLimitClass = MemberLimit::class;
-    public $subordinateLimitClass = SubordinateLimit::class;
+    public $userClass = User::class;
 }

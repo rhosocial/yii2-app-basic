@@ -22,10 +22,12 @@ class User extends \rhosocial\user\User
     use UserOrganizationTrait;
     public $profileClass = Profile::class;
     public $passwordHistoryClass = \rhosocial\user\security\PasswordHistory::class;
+    public $searchClass = UserSearch::class;
     public function init()
     {
         $this->memberClass = organization\Member::class;
         $this->organizationClass = organization\Organization::class;
+        $this->organizationLimitClass = OrganizationLimit::class;
         $this->initOrganizationEvents();
         parent::init();
     }
