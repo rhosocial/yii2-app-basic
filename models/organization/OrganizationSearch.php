@@ -13,16 +13,12 @@
 namespace app\models\organization;
 
 /**
- * Class Organization
+ * Class OrganizationSearch
  * @package app\models\organization
  * @version 1.0
- * @author vistart <i@vistart.me>
+ * @author vistart <i@vistsart.me>
  */
-class Organization extends \rhosocial\organization\Organization
+class OrganizationSearch extends \rhosocial\organization\OrganizationSearch
 {
-    public $memberClass = Member::class;
-    public $profileClass = Profile::class;
-    public $memberLimitClass = MemberLimit::class;
-    public $subordinateLimitClass = SubordinateLimit::class;
-    public $searchClass = OrganizationSearch::class;
+    public $organizationClass = Organization::class;
 }

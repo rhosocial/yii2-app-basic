@@ -25,7 +25,6 @@ class User extends \rhosocial\user\User
     public $searchClass = UserSearch::class;
     public function init()
     {
-        $this->memberClass = organization\Member::class;
         $this->organizationClass = organization\Organization::class;
         $this->organizationLimitClass = OrganizationLimit::class;
         $this->initOrganizationEvents();
