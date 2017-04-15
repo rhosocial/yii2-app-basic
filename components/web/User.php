@@ -12,7 +12,7 @@
 
 namespace app\components\web;
 
-use rhosocial\user\models\log\Login;
+use app\models\log\Login;
 use rhosocial\user\rbac\roles\Admin;
 use Yii;
 
@@ -38,14 +38,7 @@ class User extends \rhosocial\base\models\web\User
      */
     public function onRecordLogon($event)
     {
-        $user = $event->sender->identity;
-        /* @var $user \app\models\User */
-        $log = $user->create(Login::class, ['device' => 0x011]); // PC (Windows, Browser)
-        try {
-            return $log->save();
-        } catch (\Exception $ex) {
-            Yii::error($ex->getMessage());
-        }
+        return $event->sender->identity->recordLogin(['device' => Login::DEVICE_PC_WINDOWS_BROWSER]);
     }
 
     /**
