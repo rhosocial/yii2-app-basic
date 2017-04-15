@@ -12,6 +12,12 @@
 
 namespace app\models\organization;
 
+/**
+ * Class Member
+ * @package app\models\organization
+ * @version 1.0
+ * @author vistart <i@vistart.me>
+ */
 class Member extends \rhosocial\organization\Member
 {
     public $hostClass = Organization::class;

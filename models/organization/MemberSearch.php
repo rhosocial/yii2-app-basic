@@ -12,7 +12,12 @@
 
 namespace app\models\organization;
 
-
+/**
+ * Class MemberSearch
+ * @package app\models\organization
+ * @version 1.0
+ * @author vistart <i@vistart.me>
+ */
 class MemberSearch extends \rhosocial\organization\MemberSearch
 {
     public $memberClass = Member::class;
