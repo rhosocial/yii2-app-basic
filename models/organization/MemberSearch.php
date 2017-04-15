@@ -12,9 +12,8 @@
 
 namespace app\models\organization;
 
-class Member extends \rhosocial\organization\Member
+
+class MemberSearch extends \rhosocial\organization\MemberSearch
 {
-    public $hostClass = Organization::class;
-    public $memberUserClass = \app\models\User::class;
-    public $searchClass = MemberSearch::class;
+    public $memberClass = Member::class;
 }
