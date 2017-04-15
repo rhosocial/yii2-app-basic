@@ -14,6 +14,15 @@ $config = [
     'components' => [
         'i18n' => [
             'translations' => [
+                'app*' => [
+                    'class' => 'yii\i18n\PhpMessageSource',
+                    'basePath' => '@app/messages',
+                    'sourceLanguage' => 'en-US',
+                    'fileMap' => [
+                        'app' => 'app.php',
+                        'app/models/contact-form' => 'app/models/contact-form.php',
+                    ],
+                ],
                 'user*' => [
                     'class' => 'yii\i18n\PhpMessageSource',
                     'basePath' => '@rhosocial/user/messages',

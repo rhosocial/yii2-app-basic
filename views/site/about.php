@@ -4,14 +4,14 @@
 
 use yii\helpers\Html;
 
-$this->title = 'About';
+$this->title = Yii::t('app', 'About');
 $this->params['breadcrumbs'][] = $this->title;
 ?>
 <div class="site-about">
     <h1><?= Html::encode($this->title) ?></h1>
 
     <p>
-        This is the About page. You may modify the following file to customize its content:
+        <?= YII_ENV == YII_ENV_DEV ? Yii::t('app', 'This is the About page. You may modify the following file to customize its content:') : ''?>
     </p>
 
     <code><?= __FILE__ ?></code>
@@ -51,7 +51,7 @@ Create organization and it's profile and member tables:
 yii migrate --migrationPath=@rhosocial/organization --migrationNamespace=rhosocial\organization\migrations;
 ```
 
-Create organization authorization tables:
+Insert authorization informations about organization:
 
 ```
 yii migrate --migrationPath=@rhosocial/organization --migrationNamespace=rhosocial\organization\\rbac\migrations;

@@ -37,9 +37,9 @@ AppAsset::register($this);
     echo Nav::widget([
         'options' => ['class' => 'navbar-nav navbar-right'],
         'items' => [
-            ['label' => 'Home', 'url' => ['/site/index']],
-            ['label' => 'About', 'url' => ['/site/about']],
-            ['label' => 'Contact', 'url' => ['/site/contact']],
+            ['label' => Yii::t('app', 'Home'), 'url' => ['/site/index']],
+            ['label' => Yii::t('app', 'About'), 'url' => ['/site/about']],
+            ['label' => Yii::t('app', 'Contact'), 'url' => ['/site/contact']],
             (!Yii::$app->user->isGuest && Yii::$app->user->isAdmin) ? [
                 'label' => Yii::t('user', 'Admin'), 'url' => ['/admin'],
             ] : (''),
@@ -72,7 +72,9 @@ AppAsset::register($this);
     <div class="container">
         <p class="pull-left">&copy; My Company <?= date('Y') ?></p>
 
-        <p class="pull-right"><?= Yii::powered() ?></p>
+        <p class="pull-right"><?= Yii::t('yii', 'Powered by {yii}', [
+                'yii' => '<a href="https://vistart.me/" rel="external">' . 'vistart' . '</a>'
+            ]) ?></p>
     </div>
 </footer>
 

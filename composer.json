@@ -44,7 +44,7 @@
                 }
             ],
             "generateCookieValidationKey": [
-                "config/web.php"
+                "config/web_local.php"
             ]
         },
         "asset-installer-paths": {
