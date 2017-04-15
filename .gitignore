@@ -28,3 +28,7 @@ phpunit.phar
 
 tests/_output/*
 tests/_support/_generated
+config/console_local.php
+config/db_local.php
+config/web_local.php
+composer.lock
