@@ -32,3 +32,4 @@ config/console_local.php
 config/db_local.php
 config/web_local.php
 composer.lock
+web/.htaccess

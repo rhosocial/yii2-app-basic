@@ -40,21 +40,20 @@ AppAsset::register($this);
             ['label' => Yii::t('app', 'Home'), 'url' => ['/site/index']],
             ['label' => Yii::t('app', 'About'), 'url' => ['/site/about']],
             ['label' => Yii::t('app', 'Contact'), 'url' => ['/site/contact']],
-            (!Yii::$app->user->isGuest && Yii::$app->user->isAdmin) ? [
-                'label' => Yii::t('user', 'Admin'), 'url' => ['/admin'],
-            ] : (''),
             Yii::$app->user->isGuest ? (
                 ['label' => Yii::t('user', 'Login'), 'url' => ['/user/auth/login']]
-            ) : (
-                '<li>'
-                . Html::beginForm(['/user/auth/logout'], 'post')
-                . Html::submitButton(
-                    Yii::t('user', 'Logout') .' (' . Yii::$app->user->identity->getID() . ')',
-                    ['class' => 'btn btn-link logout']
-                )
-                . Html::endForm()
-                . '</li>'
-            ),
+            ) : [
+                'label' => (Yii::$app->user->identity->profile ? Yii::$app->user->identity->profile->nickname : 'No profile') .' (' . Yii::$app->user->identity->getID() . ')',
+                'encode' => true,
+                'items' => [
+                    ['label' => Yii::t('organization', 'My Organizations'), 'url' => ['/organization/my']],
+                    (!Yii::$app->user->isGuest && Yii::$app->user->isAdmin) ? [
+                        'label' => Yii::t('user', 'Admin'), 'url' => ['/admin'],
+                    ] : (''),
+                    '<li role="presentation" class="divider"></li>',
+                    ['label' => Yii::t('user', 'Logout'), 'url' => ['/user/auth/logout'], 'linkOptions' => ['data-method' => 'post', 'data-pjax' => '0']],
+                ],
+            ],
         ],
     ]);
     NavBar::end();
