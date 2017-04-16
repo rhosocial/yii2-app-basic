@@ -12,7 +12,7 @@
         "yiisoft/yii2-bootstrap": "~2.0.6",
         "yiisoft/yii2-swiftmailer": "~2.0.6",
         "rhosocial/helpers": "^1.0",
-        "rhosocial/yii2-base-models": "dev-master",
+        "rhosocial/yii2-base-models": ">=1.0.0",
         "rhosocial/yii2-user": "dev-master",
         "rhosocial/yii2-organization": "dev-master",
         "kartik-v/yii2-widget-datetimepicker": "*"
