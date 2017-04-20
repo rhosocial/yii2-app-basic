@@ -12,6 +12,35 @@ $config = [
     'bootstrap' => ['log'],
     'controllerNamespace' => 'app\commands',
     'components' => [
+        'i18n' => [
+            'translations' => [
+                'app*' => [
+                    'class' => 'yii\i18n\PhpMessageSource',
+                    'basePath' => '@app/messages',
+                    'sourceLanguage' => 'en-US',
+                    'fileMap' => [
+                        'app' => 'app.php',
+                        'app/models/contact-form' => 'app/models/contact-form.php',
+                    ],
+                ],
+                'user*' => [
+                    'class' => 'yii\i18n\PhpMessageSource',
+                    'basePath' => '@rhosocial/user/messages',
+                    'sourceLanguage' => 'en-US',
+                    'fileMap' => [
+                        'user' => 'user.php',
+                    ],
+                ],
+                'organization*' => [
+                    'class' => 'yii\i18n\PhpMessageSource',
+                    'basePath' => '@rhosocial/organization/messages',
+                    'sourceLanguage' => 'en-US',
+                    'fileMap' => [
+                        'organization' => 'organization.php',
+                    ],
+                ],
+            ],
+        ],
         'cache' => [
             'class' => 'yii\caching\FileCache',
         ],

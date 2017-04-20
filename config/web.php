@@ -121,7 +121,7 @@ if (YII_ENV_DEV) {
         'panels' => [
             'user' => [
                 'class' => 'rhosocial\user\debug\panels\UserPanel',
-            ]
+            ],
         ],
     ];
 
