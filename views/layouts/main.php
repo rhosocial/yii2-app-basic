@@ -76,6 +76,11 @@ AppAsset::register($this);
                 'yii' => '<a href="https://vistart.me/" rel="external">' . 'vistart' . '</a>'
             ]) ?></p>
     </div>
+        <?php if (isset(Yii::$app->params['cnzz'])): ?>
+    <div class="hidden">
+        <?= Yii::$app->params['cnzz'] ?>
+    </div>
+        <?php endif; ?>
 </footer>
 
 <?php $this->endBody() ?>

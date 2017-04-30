@@ -1,6 +1,9 @@
 <?php
 
 $params = require(__DIR__ . '/params.php');
+if (file_exists(__DIR__ . '/params_local.php')) {
+    $params = yii\helpers\ArrayHelper::merge($params, require(__DIR__ . '/params_local.php'));
+}
 
 $db = require(__DIR__ . '/db.php');
 if (file_exists(__DIR__ . '/db_local.php')) {

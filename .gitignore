@@ -33,3 +33,4 @@ config/db_local.php
 composer.lock
 web/.htaccess
 config/web_local.php
+config/params_local.php
