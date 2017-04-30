@@ -10,15 +10,15 @@
  * @license https://vistart.me/license/
  */
 
-namespace app\models\organization;
+namespace app\controllers;
 
-/**
- * Class Profile
- * @package app\models\organization
- * @version 1.0
- * @author vistart <i@vistart.me>
- */
-class Profile extends \rhosocial\organization\Profile
+use yii\web\Controller;
+
+class MyController extends Controller
 {
-    public $hostClass = Organization::class;
+    public $layout = '//main';
+    public function actionIndex()
+    {
+        return $this->render('//my/index');
+    }
 }
