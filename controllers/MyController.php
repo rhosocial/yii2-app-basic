@@ -12,13 +12,59 @@
 
 namespace app\controllers;
 
+use yii\filters\AccessControl;
 use yii\web\Controller;
 
+/**
+ * Class MyController
+ * @package app\controllers
+ * @version 1.0
+ * @author vistart <i@vistart.me>
+ */
 class MyController extends Controller
 {
-    public $layout = '//main';
+    public $layout = '@rhosocial/user/web/user/views/layouts/my';
+    public $baseViewPath = '//my/';
+
+    /**
+     * @inheritdoc
+     */
+    public function actions()
+    {
+        return [
+            'profile' => [
+                'class' => \app\controllers\my\ProfileAction::class
+            ],
+        ];
+    }
+
+    /**
+     * @inheritdoc
+     */
+    public function behaviors()
+    {
+        return [
+            'access' => [
+                'class' => AccessControl::class,
+                'rules' => [
+                    [
+                        'allow' => false,
+                        'roles' => ['?'],
+                    ],
+                    [
+                        'allow' => true,
+                        'roles' => ['@'],
+                    ],
+                ],
+            ],
+        ];
+    }
+
+    /**
+     * @inheritdoc
+     */
     public function actionIndex()
     {
-        return $this->render('//my/index');
+        return $this->render($this->baseViewPath . 'index');
     }
 }
