@@ -46,6 +46,7 @@ AppAsset::register($this);
                 'label' => (Yii::$app->user->identity->profile ? Yii::$app->user->identity->profile->nickname : 'No profile') .' (' . Yii::$app->user->identity->getID() . ')',
                 'encode' => true,
                 'items' => [
+                    ['label' => Yii::t('user', 'Me'), 'url' => ['/user/my']],
                     ['label' => Yii::t('organization', 'My Organizations'), 'url' => ['/organization/my']],
                     (!Yii::$app->user->isGuest && Yii::$app->user->isAdmin) ? [
                         'label' => Yii::t('user', 'Admin'), 'url' => ['/admin'],
