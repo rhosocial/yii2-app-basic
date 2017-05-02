@@ -11,6 +11,7 @@ $config = [
     'basePath' => dirname(__DIR__),
     'bootstrap' => ['log'],
     'controllerNamespace' => 'app\commands',
+    'language' => 'zh-CN',
     'components' => [
         'i18n' => [
             'translations' => [
