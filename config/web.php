@@ -52,7 +52,7 @@ $config = [
             'class' => 'yii\caching\FileCache',
         ],
         'user' => [
-            'class' => 'app\components\web\User',
+            'class' => 'rhosocial\user\components\User',
             'identityClass' => 'app\models\User',
             'enableAutoLogin' => true,
             'loginUrl' => ['user/auth/login'],

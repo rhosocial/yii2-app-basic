@@ -24,6 +24,7 @@ class User extends \rhosocial\user\User
     public $passwordHistoryClass = \rhosocial\user\security\PasswordHistory::class;
     public $searchClass = UserSearch::class;
     public $loginLogClass = log\Login::class;
+    public $usernameClass = Username::class;
     public function init()
     {
         $this->organizationClass = organization\Organization::class;
