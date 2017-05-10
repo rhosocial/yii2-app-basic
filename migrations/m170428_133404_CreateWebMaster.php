@@ -39,8 +39,10 @@ class m170428_133404_CreateWebMaster extends Migration
             echo $ex->getMessage() . "\n";
             echo "Failed to register.\n";
         }
-        $user->setID('80000000');
-        $user->save();
+        if (!User::find()->id('80000000')->exists()) {
+            $user->setID('80000000');
+            $user->save();
+        }
         echo "{$user->getID()} Registered.\n";
         echo "Password: $password\n";
 
