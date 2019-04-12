@@ -30,31 +30,31 @@ You should execute the following migrations:
 Create `user`, `profile`, `password_history` tables:
 
 ```
-yii migrate --migrationPath=@rhosocial/user --migrationNamespace=rhosocial\user\migrations;
+yii migrate --migrationPath=@rhosocial/user --migrationNamespaces=rhosocial\\user\\migrations;
 ```
 
 Create authorization tables:
 
 ```
-yii migrate --migrationPath=@rhosocial/user --migrationNamespace=rhosocial\user\\rbac\migrations;
+yii migrate --migrationPath=@rhosocial/user --migrationNamespaces=rhosocial\\user\\rbac\\migrations;
 ```
 
 Create `login_log` table:
 
 ```
-yii migrate --migrationPath=@rhosocial/user --migrationNamespace=rhosocial\user\models\log\migrations;
+yii migrate --migrationPath=@rhosocial/user --migrationNamespaces=rhosocial\\user\\models\\log\\migrations;
 ```
 
 Create organization and it's profile and member tables:
 
 ```
-yii migrate --migrationPath=@rhosocial/organization --migrationNamespace=rhosocial\organization\migrations;
+yii migrate --migrationPath=@rhosocial/organization --migrationNamespaces=rhosocial\\organization\\migrations;
 ```
 
 Insert authorization informations about organization:
 
 ```
-yii migrate --migrationPath=@rhosocial/organization --migrationNamespace=rhosocial\organization\\rbac\migrations;
+yii migrate --migrationPath=@rhosocial/organization --migrationNamespaces=rhosocial\\organization\\rbac\migrations;
 ```
 EOT;
 echo (new \cebe\markdown\GithubMarkdown())->parse($markdown);
